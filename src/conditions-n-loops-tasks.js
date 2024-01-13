@@ -150,14 +150,9 @@ function convertToRomanNumerals(num) {
   if (strNum.length < 2) {
     return toRoman(num);
   }
-  const result = [];
-  for (let i = 0; i <= strNum.length - 1; i += 1) {
-    const secondNum = toRoman(parseInt(strNum[i + 1]));
-    if (i === 0) {
-      result.push(`${'X'.repeat(i + 2)}${secondNum}`);
-    }
-  }
-  return result[0];
+  const romanNum = toRoman(parseInt(strNum[1], 10));
+  const result = `${'X'.repeat(strNum[0])}${romanNum}`;
+  return result;
 }
 
 /**
