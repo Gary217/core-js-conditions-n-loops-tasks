@@ -146,12 +146,13 @@ function convertToRomanNumerals(num) {
         return '';
     }
   };
-  const strNum = num.toString();
-  if (strNum.length < 2) {
-    return toRoman(num);
+  let strNum = num;
+  let result = '';
+  while (strNum >= 10) {
+    result += 'X';
+    strNum -= 10;
   }
-  const romanNum = toRoman(parseInt(strNum[1], 10));
-  const result = `${'X'.repeat(strNum[0])}${romanNum}`;
+  result += toRoman(strNum);
   return result;
 }
 
